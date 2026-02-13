@@ -62,4 +62,34 @@ mindcue/
 ```bash
 git clone [https://github.com/Tejas1625/mindcue-mental-health-ml-nlp.git](https://github.com/Tejas1625/mindcue-mental-health-ml-nlp.git)
 cd mindcue-mental-health-ml-nlp
+```
+### 2. Install Dependencies - Ensure you have Python 3.8+ installed
+```bash
+pip install -r requirements.txt
+```
+### 3. Set up Data
+Due to GitHub's file size limits, the dataset is hosted externally.
+1. **Download:** [Sentiment Analysis for Mental Health (Kaggle)](https://www.kaggle.com/datasets/suchintikasarkar/sentiment-analysis-for-mental-health)
+2. **Setup:** Move the downloaded `Combined Data.csv` file into the `data/` folder of this project.
+
+### 4. Train the Model
+Train the model locally to generate the .joblib file and the emissions report.
+*This will create models/mindcue_textclf.joblib and reports/emissions.csv.*
+
+### 5. Generate Emission Data
+To make the Carbon Tracking dashboard work, run this script to parse the training logs.
+```bash
+python parse_report.py
+```
+*This generates static/emissions_data.json for the frontend.*
+
+### 6. Start the Application
+Launch the web server:
+```Bash
+python app.py
+```
+Open Browser: Go to http://localhost:5000 (or the port shown in your terminal).
+*Test It: Type a sentence like "I feel hopeless and tired" to see the prediction, SHAP explanation and Carbon emissions.*
+
+
    
