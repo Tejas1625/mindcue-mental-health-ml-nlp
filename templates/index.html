@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>MindCue – NLP Classifier</title>
+  <!-- Tailwind via CDN for fast dev -->
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 min-h-screen">
+<div class="max-w-3xl mx-auto px-4 py-10">
+  <header class="mb-6">
+    <h1 class="text-3xl font-bold">MindCue</h1>
+    <p class="text-gray-600">Research Prototype for Multi‑Class Text Classification</p>
+  </header>
+
+  <!-- Error Banner Section -->
+  <div id="errorBanner" class="hidden bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded-xl relative mb-6" role="alert">
+    <strong class="font-bold">Error:</strong>
+    <span class="block sm:inline" id="errorMessage"></span>
+  </div>
+
+  <!-- Input Section -->
+  <section class="bg-white shadow rounded-2xl p-6 mb-6">
+    <label for="text" class="block text-sm font-medium text-gray-700 mb-2">Enter text</label>
+    <textarea id="text" class="w-full border rounded-xl p-3 focus:outline-none focus:ring-2 focus:ring-black" rows="6" placeholder="Paste or type your text here..."></textarea>
+    <div class="mt-4 flex gap-3">
+      <button id="predictBtn" class="px-4 py-2 rounded-xl bg-black text-white font-semibold transition-colors hover:bg-gray-800 disabled:bg-gray-400">Predict</button>
+      <button id="clearBtn" class="px-4 py-2 rounded-xl border font-semibold transition-colors hover:bg-gray-100">Clear</button>
+    </div>
+  </section>
+
+  <!-- Result Card Section -->
+  <section id="resultCard" class="hidden bg-white shadow rounded-2xl p-6 mt-6">
+    <h2 class="text-xl font-bold mb-2 border-b pb-2">Prediction</h2>
+    <div id="predLabel" class="text-xl font-semibold text-black"></div>
+    <div id="safety" class="mt-2 text-sm text-red-700 font-medium"></div>
+    <div class="mt-2">
+      <h3 class="font-medium mb-2 text-gray-800">Probabilities are as follows:</h3>
+      <div id="probaList" class="text-sm text-gray-700 space-y-1"></div>
+    </div>
+  </section>
+
+  <!-- Explanation Card Section (for SHAP) -->
+  <section id="explanationCard" class="hidden bg-white shadow rounded-2xl p-6 mt-6">
+    <h2 class="text-xl font-semibold mb-2 border-b pb-2">Why this prediction?</h2>
+    <p class="text-sm text-gray-600 mb-3">
+      The words below influenced the model's decision. Green words supported the prediction, red words opposed it.
+    </p>
+    <div id="explanationList" class="flex flex-wrap gap-4"></div>
+  </section>
+
+  <!--  Model Performance Metrics in a styled card -->
+  <div class="bg-white shadow rounded-2xl p-6 border border-gray-200 mt-6">
+    <h3 class="text-xl font-semibold text-gray-800 border-b pb-2 mb-4">Model Performance</h3>
+    <div class="grid grid-cols-2 gap-x-4 gap-y-2 text-md">
+      <div class="text-gray-600">Accuracy:</div>
+      <div class="font-mono text-gray-800 text-right">
+        <!--  Added the ID for the accuracy span -->
+        <span id="metric-accuracy" class="bg-gray-200 py-1 px-2 rounded-md">...</span>
+      </div>
+
+      <div class="text-gray-600">Macro F1-Score:</div>
+      <div class="font-mono text-gray-800 text-right">
+        <!--  Added the ID for the F1-score span -->
+        <span id="metric-f1-score" class="bg-gray-200 py-1 px-2 rounded-md">...</span>
+      </div>
+    </div>
+    <p class="text-xs text-gray-500 italic mt-4">Calculated on a hold-out test set from the last training run.</p>
+  </div>
+
+  <!--  CodeCarbon Emissions Section -->
+  <div id="emissionsCard" class="bg-white shadow rounded-2xl p-6 border border-gray-200 mt-6">
+    <h3 class="text-xl font-semibold mb-2 text-gray-800 border-b pb-2 gap-y-4">Model Training Footprint</h3>
+    <p class="text-sm text-gray-600 mb-4">
+      This section shows the estimated environmental impact of the last model training session.
+    </p>
+    <div id="emissionsData" class="grid grid-cols-2 gap-x-8 gap-y-4 text-sm">
+      <!-- Data will be loaded here by JavaScript -->
+      <!-- since code carbon emission might be different every time it trains -->
+    </div>
+  </div>
+  <!-- End of new section -->
+
+  <!-- Disclaimer, very important for MindCue -->
+  <footer class="mt-8 font-medium text-center text-xs text-gray-500">
+    <p>
+      Disclaimer: MindCue is an educational research prototype and not a diagnostic tool.
+    </p>
+  </footer>
+</div>
+
+<!-- The correct script tag for Flask templates -->
+<script src="{{ url_for('static', filename='app.js') }}" defer></script>
+</body>
+</html>
+
