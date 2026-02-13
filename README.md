@@ -57,7 +57,7 @@ mindcue/
 └── logs/                # (Generated) Stores prediction logs
 ```
 
-## ⚡ How to Run Locally
+## How to Run Locally
 
 ### 1. Clone the Repository
 ```bash
