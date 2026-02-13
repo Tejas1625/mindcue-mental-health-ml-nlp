@@ -34,7 +34,7 @@ Due to GitHub's file size limits, the dataset is hosted externally.
 
 *Note: The `train.py` script automatically looks for the file at `data/Combined Data.csv`.*
 
-## 📂 Project Structure
+## Project Structure
 ```text
 mindcue/
 │
@@ -56,3 +56,10 @@ mindcue/
 ├── models/              # (Generated) Stores saved model (.joblib)
 └── logs/                # (Generated) Stores prediction logs
 ```
+## ⚡ How to Run Locally
+
+### 1. Clone the Repository
+```bash
+git clone [https://github.com/Tejas1625/mindcue-mental-health-ml-nlp.git](https://github.com/Tejas1625/mindcue-mental-health-ml-nlp.git)
+cd mindcue-mental-health-ml-nlp
+   
