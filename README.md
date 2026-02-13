@@ -29,8 +29,8 @@ The model was trained on a combined dataset of social media posts (Twitter, Redd
 
 ### How to Get the Data
 Due to GitHub's file size limits, the dataset is hosted externally.
-1. **Download:** [Sentiment Analysis for Mental Health (Kaggle)](https://www.kaggle.com/datasets/suchintikasarkar/sentiment-analysis-for-mental-health)
-2. **Setup:** Move the downloaded `Combined Data.csv` file into the `data/` folder of this project.
+- **Download:** [Sentiment Analysis for Mental Health (Kaggle)](https://www.kaggle.com/datasets/suchintikasarkar/sentiment-analysis-for-mental-health)
+- **Setup:** Move the downloaded `Combined Data.csv` file into the `data/` folder of this project.
 
 *Note: The `train.py` script automatically looks for the file at `data/Combined Data.csv`.*
 
