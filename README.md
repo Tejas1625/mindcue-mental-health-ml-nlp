@@ -93,5 +93,5 @@ Launch the web server:
 ```Bash
 python app.py
 ```
-- **Open Browser:** Go to http://localhost:5000 (or the port shown in your terminal).
+- **Open Browser:** Go to http://localhost:8000 (or the port shown in your terminal).
 - **Test It:** Type a sentence like "I feel hopeless and tired" to see the prediction, SHAP explanation and Carbon emissions.
