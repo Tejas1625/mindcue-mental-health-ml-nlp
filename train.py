@@ -78,7 +78,7 @@ def main():
     Main function to run the data loading, training, and evaluation pipeline.
     """
     parser = argparse.ArgumentParser(description="Train MindCue text classifier")
-    parser.add_argument("--data_path", default="Combined Data.csv",
+    parser.add_argument("--data_path", default="data/Combined Data.csv",
                         help="CSV with columns: statement/text, status/label")
     parser.add_argument("--model_out", default="models/mindcue_textclf.joblib")
     parser.add_argument("--labels_out", default="models/labels.json")
